@@ -59,11 +59,11 @@ Please contact the user.
 
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-            smtp.login(EMAIL_USER, EMAIL_PASS)
-            smtp.send_message(msg)
+        smtp.login(EMAIL_USER, EMAIL_PASS)
+        smtp.send_message(msg)
     except Exception as e:
         print("EMAIL ERROR:", e)
-        return "Email sending failed", 500
+        return f"Error: {e}", 500
 
     return "Booking submitted successfully. We will contact you soon."
 
@@ -72,4 +72,5 @@ Please contact the user.
 # =====================================
 
 if __name__ == "__main__":
+
     app.run(debug=True)
