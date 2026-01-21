@@ -2,6 +2,7 @@ import smtplib
 from email.message import EmailMessage
 from flask import Flask, request, render_template
 import os
+import threading
 
 app = Flask(__name__)
 
@@ -56,14 +57,13 @@ Amount       : ₹999
 Please contact the user.
 """
     )
-
+def send_email(msg):
     try:
-      with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        smtp.login(EMAIL_USER, EMAIL_PASS)
-        smtp.send_message(msg)
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as smtp:
+            smtp.login(EMAIL_USER, EMAIL_PASS)
+            smtp.send_message(msg)
     except Exception as e:
         print("EMAIL ERROR:", e)
-        return f"Error: {e}", 500
 
     return "Booking submitted successfully. We will contact you soon."
 
@@ -74,3 +74,4 @@ Please contact the user.
 if __name__ == "__main__":
 
     app.run(debug=True)
+
