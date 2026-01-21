@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Echo – The Unsaid Space</title>
+  <link rel="stylesheet" href="/static/static/style.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="/static/images/logo.png">
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Echo</h1>
+  <h2>The Unsaid Space</h2>
+
+  <p>
+    Some feelings don’t need fixing.<br>
+    They need to be heard.
+  </p>
+
+  <button class="btn-gold" onclick="openModal()">Talk to Experts</button>
+
+  <div class="trust">
+    ✓ Private & Confidential &nbsp;&nbsp; ✓ No Login &nbsp;&nbsp; ✓ Human Conversations
+  </div>
+</section>
+
+<!-- BOOKING MODAL -->
+<div id="modal">
+  <div class="modal-card">
+    <span class="close" onclick="closeModal()">×</span>
+
+    <h3>Book a Session</h3>
+    <p class="price">₹999 / 1 Hour</p>
+
+    <form method="POST" action="/submit">
+      <input name="name" placeholder="Your Name" required>
+      <input name="mobile" placeholder="Mobile Number" required>
+      <input name="email" type="email" placeholder="Email Address" required>
+
+      <label>Session Date</label>
+      <input type="date" name="date" required>
+
+      <label>Session Time</label>
+      <input type="time" name="time" required>
+
+      <button type="submit" class="btn-indigo">Confirm Session</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  window.onload = () => document.getElementById("loader").style.display = "none";
+
+  function openModal() {
+    document.getElementById("modal").classList.add("show");
+  }
+
+  function closeModal() {
+    document.getElementById("modal").classList.remove("show");
+  }
+</script>
+
+</body>
+</html>

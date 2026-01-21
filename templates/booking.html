@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Session – Echo</title>
+  <link rel="stylesheet" href="/static/static/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>Book Your Session</h2>
+  <p class="price">₹999 / 1 Hour</p>
+
+  <form method="POST" action="/submit">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="mobile" placeholder="Mobile Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+
+    <label>Session Date</label>
+    <input type="date" name="date" required>
+
+    <label>Session Time</label>
+    <input type="time" name="time" required>
+
+    <button type="submit">Confirm Session</button>
+  </form>
+
+  <p class="note">
+    You’ll be contacted shortly to confirm your session.
+  </p>
+</div>
+
+</body>
+</html>
