@@ -10,9 +10,9 @@ app = Flask(__name__)
 # 🔴 HARDCODED EMAIL CONFIG (TEMP ONLY)
 # =====================================
 
-EMAIL_USER = os.environ.get("EMAIL_USER")
-EMAIL_PASS = os.environ.get("EMAIL_PASS")
-ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL")
+EMAIL_USER = "notifications.echo@gmail.com"        # sender Gmail
+EMAIL_PASS = "wceujosmuelmuanl"           # Gmail APP PASSWORD (no spaces)
+ADMIN_EMAIL = "trendytrolls9@gmail.com"           # admin receiver email
 # =====================================
 # ROUTES
 # =====================================
@@ -76,6 +76,7 @@ def send_email(msg):
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
 
