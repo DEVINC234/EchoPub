@@ -58,7 +58,7 @@ Please contact the user.
 """
     )
     threading.Thread(target=send_email, args=(msg,)).start()
-return "success"
+    return "success"
 def send_email(msg):
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as smtp:
@@ -76,5 +76,6 @@ def send_email(msg):
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
