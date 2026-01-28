@@ -1,8 +1,6 @@
 import smtplib
 from email.message import EmailMessage
 from flask import Flask, request, render_template
-import os
-import threading
 
 app = Flask(__name__)
 
@@ -13,6 +11,7 @@ app = Flask(__name__)
 EMAIL_USER = "notifications.echo@gmail.com"        # sender Gmail
 EMAIL_PASS = "wceujosmuelmuanl"           # Gmail APP PASSWORD (no spaces)
 ADMIN_EMAIL = "trendytrolls9@gmail.com"           # admin receiver email
+
 # =====================================
 # ROUTES
 # =====================================
@@ -57,12 +56,14 @@ Amount       : ₹999
 Please contact the user.
 """
     )
+
     try:
-        with smtplib.SMTP("smtp.mailgun.org", 587, timeout=10) as smtp:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as smtp:
             smtp.login(EMAIL_USER, EMAIL_PASS)
             smtp.send_message(msg)
     except Exception as e:
         print("EMAIL ERROR:", e)
+        return "Email sending failed", 500
 
     return "Booking submitted successfully. We will contact you soon."
 
@@ -71,14 +72,4 @@ Please contact the user.
 # =====================================
 
 if __name__ == "__main__":
-
     app.run(debug=True)
-
-
-
-
-
-
-
-
-
