@@ -56,8 +56,10 @@ Amount       : ₹999
 Please contact the user.
 """
     )
+    threading.Thread(target=send_email, args=(msg,)).start()
+
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as smtp:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout = 15) as smtp:
             smtp.login(EMAIL_USER, EMAIL_PASS)
             smtp.send_message(msg)
     except Exception as e:
@@ -65,6 +67,7 @@ Please contact the user.
 
 
     return "Booking submitted successfully. We will contact you soon."
+    return "success"
 
 # =====================================
 # RUN APP
@@ -73,4 +76,5 @@ Please contact the user.
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
