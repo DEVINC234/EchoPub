@@ -67,7 +67,6 @@ Please contact the user.
 
 
     return "Booking submitted successfully. We will contact you soon."
-    return "success"
 
 # =====================================
 # RUN APP
@@ -76,5 +75,6 @@ Please contact the user.
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
