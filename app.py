@@ -57,7 +57,7 @@ Please contact the user.
 """
     )
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as smtp:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=15) as smtp:
             smtp.login(EMAIL_USER, EMAIL_PASS)
             smtp.send_message(msg)
     except Exception as e:
@@ -73,3 +73,4 @@ Please contact the user.
 if __name__ == "__main__":
 
     app.run(debug=True)
+
