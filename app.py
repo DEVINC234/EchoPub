@@ -23,16 +23,19 @@ def index():
 
 @app.route("/submit", methods=["POST"])
 def submit():
-    name = request.form.get("name")
-    mobile = request.form.get("mobile")
-    name = request.form.get("name")
-    mobile = request.form.get("mobile")
-    email = request.form.get("email")
-    date = request.form.get("date")
-    time = request.form.get("time")
+   try:
+        name = request.form.get("name")
+        mobile = request.form.get("mobile")
+        email = request.form.get("email")
+        date = request.form.get("date")
+        time = request.form.get("time")
 
-    if not name or not mobile:
-        return "Missing details", 400
+        # just return success temporarily
+        return "Form received"
+
+    except Exception as e:
+        print("ERROR IN /submit:", str(e))
+        return "Something went wrong", 500
 
     # Create email
     msg = EmailMessage()
@@ -73,6 +76,7 @@ Please contact the user.
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
 
