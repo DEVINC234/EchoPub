@@ -56,8 +56,6 @@ Amount       : ₹999
 Please contact the user.
 """
     )
-    threading.Thread(target=send_email, args=(msg,)).start()
-
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout = 15) as smtp:
             smtp.login(EMAIL_USER, EMAIL_PASS)
@@ -75,6 +73,7 @@ Please contact the user.
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
 
